@@ -1,0 +1,70 @@
+Garbage Collector:
+ 	    Part of .NET framework that allocates and releases memory for our application.
+    	Objects are allocated in the heap contiguously one after another.
+  
+Managed Code: 
+      Code whose execution is managed by CLR, compiling into machine code. Memory is managed by GC
+      
+Unmanaged code: 
+      Developed by user, memory is cleaned by operating system , by implementing      dispose pattern.
+      When we create objects that include unmanaged resources, we must explicitly release those resources when we finish using them.
+      Eg: files, windows, network connections, db connections etc.
+      GC can track the life time of these objects but don’t know how to release or clean up.
+      
+Dispose Method: 
+      Handle unmanaged resources using Dispose Pattern.
+      1.	– wrap each unmanaged resources in a SAFE Handle derived from System.Runtime.InterosService.safeHandle
+          -	Implement IDisposable interface and Dispose(Boolean)
+          -	Doesn’t require Object.Finalize method overriding
+      2.	-Implement IDispose interface, Dispose(Boolean) method
+          -override Object.Finalize()
+      Dispose() performs all object cleanup, so, GC no longer need to call objects.so we can use 
+      GC.SuppressFinalize().
+      Dispose(true) – indicates method calls from Dispose()
+      Dispose(false) – indicates method calls from finalizer()
+
+
+Memory Release: 
+      Garbage Collection: is a process of releasing memory from the objects which are no longer needed.
+      To determine whether object is needed or not, GC examine application Roots -> Strong References that are global to application ( global, static object pointers, local variables etc.)
+      For each active root, GC builds a graph that contains the entire object that is reachable from these roots.
+      Unreachable objects are removed by the GC.
+
+Generation:
+      For better memory performance, managed heap is divide into segments, called Generations (0,1,2)
+      1.	When object is created placed to Gen 0.
+      2.	When Gen 0 is full, GC performs garbage collection and removes all unreachable objects from the heap. All reachable objects are promoted to Gen 1.
+      3.	When Gen 1 is full, garbage collection is performed and all reachable objects are promoted to Gen 2. Gen 0 also takes place here.
+      4.	When Gen 2 is full garbage collection takes place, first Gen 2, Gen 1, then Gen 0 collections.
+      And still if memory is not there for new allocation, GC raises OutOfMemory exception.
+      More objects in Gen 1and Gen 2 may affect the performance.
+
+Finalize Method: 
+      by defining destructor we can define Finalize. Destructor override the finalize method.
+      It is used to remove unmanaged resources.
+      
+Strong References: 
+      Garbage Collector cannot collect an object which is in use by the application, while the application code can reach the object.
+      
+Weak Reference: 
+      A weak reference permits the GC to collect the object while still allowing the application to access the object.
+      This reference is valid until the object is collected when there is no strong references.
+      Eg: weak reference is created using a constructor call we pass the object reference, we want to point to the constructor.
+
+Dispose() and Finalize():
+      1.	Dispose() is defined in an Interface IDisposable.
+          Finalize() is defined in the class object.
+          
+      2.	Dispose has to be manually invoked inside the code by implementing Dispose() override
+          Finalize is automatically invoked by the GC before it destroys the object.
+          
+      3.	Dispose() – public  and Finalize() – protected
+      
+      4.	Dispose() is faster and frees the object instantly, it has no effect on the performance cost.
+          Finalize() is slower and doesn’t free the resources held by object instantly.
+
+          
+
+
+
+
