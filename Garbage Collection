@@ -62,6 +62,10 @@ Dispose() and Finalize():
       
       4.	Dispose() is faster and frees the object instantly, it has no effect on the performance cost.
           Finalize() is slower and doesn’t free the resources held by object instantly.
+          
+
+https://www.dotnetperls.com/weakreference
+https://techdifferences.com/difference-between-dispose-and-finalize-in-c-sharp.html
 
           
 
