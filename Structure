@@ -9,4 +9,9 @@ Diffrence:
 Structures are value types which are faster for samll data and good for gaming
 where as Classess are reference types which are good for large data
 
+Why a struct does not declare a default constructor?
+Because copies of structs are created and destroyed automatically by the compiler, a default constructor and destructor are unnecessary. In effect, the compiler implements the 
+default constructor by assigning all the fields of their default values.
+
+
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/structs
