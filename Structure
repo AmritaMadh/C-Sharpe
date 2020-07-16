@@ -1,0 +1,12 @@
+ can include constructors, constants, fields, methods, properties, indexers, operators, events & nested types.
+ cannot have explict parameterless constructor or a destructor.
+ can implement interfaces, same as class.
+ cannot inherit another structure or class, and it cannot be the base of a class.
+ members cannot be specified as abstract, sealed, virtual, or protected.
+ members are called using new keyword.
+
+Diffrence:
+Structures are value types which are faster for samll data and good for gaming
+where as Classess are reference types which are good for large data
+
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/structs
