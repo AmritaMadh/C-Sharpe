@@ -13,5 +13,37 @@ Why a struct does not declare a default constructor?
 Because copies of structs are created and destroyed automatically by the compiler, a default constructor and destructor are unnecessary. In effect, the compiler implements the 
 default constructor by assigning all the fields of their default values.
 
+Declaration:
 
+public struct newStruct
+{
+    public int m, n;
+    public newStruct(int pt1, int pt2)
+    {
+        m = pt1;
+        n = pt2;
+    }
+}
+
+public class Main{
+
+public void main(){
+
+//one way
+  newStruct myPoint;
+
+        myPoint.m = 30;
+        myPoint.n = 40;
+        
+ // using new keyword
+ newStruct myPointnew = new newStruct ;
+
+        myPointnew.m = 30;
+        myPointnew.n = 40;
+}
+}
+
+
+References:
+-----------
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/structs
