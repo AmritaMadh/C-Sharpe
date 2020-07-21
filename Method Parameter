@@ -1,0 +1,27 @@
+Params:
+specifies this may take variable number of parameters.
+No additional parameters are permitted after the params keyword in a method declaration, and only one params keyword is permitted in a method declaration.
+
+What does "Params" do? 
+Using "Params", the arguments passed to a method are changed by the compiler to elements in a temporary array, and this array is then used to retrieve the method parameters by 
+the caller code. What if the creator of a class does not know how many number of parameters a caller will use?
+ 
+For example, a Student class with a method, TotalMarks that returns the sum of all marks. Each grade may have a different number of subjects and their respective marks. The 3rd 
+grade may have 3 subjects only. The 8th grade may have 4 subjects while a 9th grade may have 5 subjects. We can use params in this case and pass 3, 4, and 5 comma separated values. 
+ 
+ 
+Why we use "Params" in C#?
+As I said earlier, params keyword in C# can be used to declare method that does not know the number of parameters. Parmas are also useful to write "clean code". Instead of using 
+various overloaded methods to pass multiple values, we can simply create an array and pass it as an arugment or a comma separated list of values. 
+Let's say, we have a class, Student. It has two methods, TotalMarks and AllSubjects. Each of these methods take a parameter of type params. As you can see from the below code, 
+params is an array. 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Named Parameter
+ 
+Named Parameters allow developers to pass a method arguments with parameter names. Prior to these this feature, the method parameters were passed using a sequence only.
+Now, using named parameters in C#, we can put any parameter in any sequence as long as the name is there. The right parameber value based on their names will be mapped to the 
+right variable. The parameters name must match with the method definition parameter names.
+
+References:
+-----------
+https://www.c-sharpcorner.com/UploadFile/c63ec5/use-params-keyword-in-C-Sharp/
