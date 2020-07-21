@@ -24,4 +24,5 @@ right variable. The parameters name must match with the method definition parame
 
 References:
 -----------
-https://www.c-sharpcorner.com/UploadFile/c63ec5/use-params-keyword-in-C-Sharp/
+params - https://www.c-sharpcorner.com/UploadFile/c63ec5/use-params-keyword-in-C-Sharp/
+named / optional parameter - https://www.c-sharpcorner.com/UploadFile/manas1/named-and-optional-parameter-in-C-Sharp/
